@@ -209,6 +209,34 @@
 
 	<script src="/magnet-player/js/bundle.js"></script>
 
+	<script>
+	// utils
+  /**
+   * Get parameters from query string
+   * @param  {string} name Name of parameter
+   * @return {String}      Value of parameter
+   */
+  function getParam(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]")
+    var regexS = "[\\?&]"+name+"=([^&#]*)"
+    var regex = new RegExp(regexS)
+    var results = regex.exec(window.location.href)
+    if( results == null ) {
+      return ""
+    } else {
+      return decodeURIComponent(results[1])
+    }
+  }
+
+	var model = {}
+	model.uri = getParam('uri')
+
+	if (model.uri) {
+		document.getElementsByTagName('input')[0].value = model.uri
+	}
+
+	</script>
+
 </body>
 
 </html>
