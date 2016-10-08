@@ -233,7 +233,12 @@
 
 	if (model.uri) {
 		document.getElementsByTagName('input')[0].value = model.uri
+		document.addEventListener("DOMContentLoaded", function(event) {
+			document.getElementsByTagName('button')[0].click()
+	  })
 	}
+
+
 
 	</script>
 
